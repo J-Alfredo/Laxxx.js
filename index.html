@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/main.css">
+    <title>Laxxx.js</title>
+</head>
+<body>
+
+    <section class="intro">
+        <p class="scroll-text">Scroll down</p>
+    </section>
+
+    <!-- <div class="selector">Hello</div> -->
+
+    <section class="anim">
+        <h1>Animation</h1>
+        <p class="desc">Check out this nifty little scroll based animation with laxxx.js</p>
+        <div class="lax lax_preset_spin:1250:360 box1"></div>
+        <div class="box2"></div>
+    </section>
+
+    <section></section>
+
+
+    <script src="./node_modules/lax.js/lib/lax.min.js"></script>
+    <!-- <script src="./js/main.js"></script> -->
+    <script>
+        window.onload = function () {
+          lax.init()
+      
+          // Add a driver that we use to control our animations
+          lax.addDriver('scrollY', function () {
+            return window.scrollY
+          })
+      
+          // Add animation bindings to elements
+          lax.addElements('.selector', {
+            scrollY: {
+              translateX: [
+                ["elInY", "elCenterY", "elOutY"],
+                [0, 'screenWidth/2', 'screenWidth'],
+              ]
+            }
+          })
+        }
+      </script>
+</body>
+</html>
